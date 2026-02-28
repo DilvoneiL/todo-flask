@@ -61,4 +61,3 @@ todo-flask/
 
 O banco `todo.db` é criado automaticamente ao iniciar o projeto.
 
-```
