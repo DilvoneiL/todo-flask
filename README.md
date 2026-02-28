@@ -48,6 +48,9 @@ todo-flask/
   README.md
   templates/
   static/
+
+
+
 Observações
 
 O banco todo.db é criado automaticamente ao iniciar.
