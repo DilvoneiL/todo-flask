@@ -33,18 +33,21 @@ Projeto web simples desenvolvido com **Flask** para gerenciar tarefas (To-Do), c
    ```bash
    pip install -r requirements.txt
 
-
+```
 
 3. Rode o projeto:
-   ```bash
-   python3 app.py
+```bash
+python3 app.py
+
+```
 
 
-Acesse:
 
-http://127.0.0.1:5000
+Acesse: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
-Estrutura
+## Estrutura
+
+```text
 todo-flask/
   app.py
   requirements.txt
@@ -52,8 +55,10 @@ todo-flask/
   templates/
   static/
 
+```
 
+## Observações
 
-Observações
+O banco `todo.db` é criado automaticamente ao iniciar o projeto.
 
-O banco todo.db é criado automaticamente ao iniciar.
+```
