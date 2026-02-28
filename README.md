@@ -32,9 +32,8 @@ Projeto web simples desenvolvido com **Flask** para gerenciar tarefas (To-Do), c
 2. Instale dependências:
    ```bash
    pip install -r requirements.txt
-
-```
-```
+  ```
+  
 3. Rode o projeto:
     ```bash
     python3 app.py
