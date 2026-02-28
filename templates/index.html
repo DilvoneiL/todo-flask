@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form class="card" method="get" action="{{ url_for('index') }}">
+  <div class="row">
+    <input name="q" placeholder="Buscar por título, descrição ou categoria..." value="{{ q }}">
+    <select name="status">
+      <option value="all" {{ 'selected' if status=='all' else '' }}>Todas</option>
+      <option value="pending" {{ 'selected' if status=='pending' else '' }}>Pendentes</option>
+      <option value="done" {{ 'selected' if status=='done' else '' }}>Concluídas</option>
+    </select>
+    <button class="btn primary" type="submit">Filtrar</button>
+  </div>
+</form>
+
+<section class="list">
+  {% if tasks|length == 0 %}
+    <p class="muted">Nenhuma tarefa encontrada.</p>
+  {% endif %}
+
+  {% for t in tasks %}
+    <article class="task {{ 'done' if t['done']==1 else '' }}">
+      <div class="task-main">
+        <h3>{{ t["title"] }}</h3>
+        {% if t["description"] %}
+          <p>{{ t["description"] }}</p>
+        {% endif %}
+        <div class="meta">
+          {% if t["category"] %}
+            <span class="tag">#{{ t["category"] }}</span>
+          {% endif %}
+          <span class="muted">Criada em {{ t["created_at"] }}</span>
+        </div>
+      </div>
+
+      <div class="task-actions">
+        <form method="post" action="{{ url_for('toggle_task', task_id=t['id']) }}">
+          <button class="btn" type="submit">
+            {{ 'Reabrir' if t['done']==1 else 'Concluir' }}
+          </button>
+        </form>
+        <form method="post" action="{{ url_for('delete_task', task_id=t['id']) }}">
+          <button class="btn danger" type="submit">Excluir</button>
+        </form>
+      </div>
+    </article>
+  {% endfor %}
+</section>
+
+{% endblock %}
