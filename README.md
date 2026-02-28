@@ -20,12 +20,12 @@ Projeto web simples desenvolvido com **Flask** para gerenciar tarefas (To-Do), c
 1. Crie e ative um ambiente virtual:
    - Windows:
      ```bash
-     python -m venv .venv
+     python3 -m venv .venv
      .\.venv\Scripts\activate
      ```
    - Linux/Mac:
      ```bash
-     python -m venv .venv
+     python3 -m venv .venv
      source .venv/bin/activate
      ```
 
@@ -33,9 +33,12 @@ Projeto web simples desenvolvido com **Flask** para gerenciar tarefas (To-Do), c
    ```bash
    pip install -r requirements.txt
 
-Rode o projeto:
 
-python app.py
+
+3. Rode o projeto:
+   ```bash
+   python3 app.py
+
 
 Acesse:
 
