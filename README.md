@@ -39,6 +39,7 @@ Projeto web simples desenvolvido com **Flask** para gerenciar tarefas (To-Do), c
     python3 app.py
 
 ```
+```
 
 
 
