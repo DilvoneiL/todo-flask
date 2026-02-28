@@ -36,8 +36,8 @@ Projeto web simples desenvolvido com **Flask** para gerenciar tarefas (To-Do), c
 ```
 
 3. Rode o projeto:
-```bash
-python3 app.py
+    ```bash
+    python3 app.py
 
 ```
 
