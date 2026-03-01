@@ -13,6 +13,9 @@
   </div>
 </form>
 
+<p class="muted">
+  Total: {{ counts.total }} | Pendentes: {{ counts.pending }} | Concluídas: {{ counts.done }}
+</p>
 <section class="list">
   {% if tasks|length == 0 %}
     <p class="muted">Nenhuma tarefa encontrada.</p>
@@ -40,7 +43,10 @@
           </button>
         </form>
         <form method="post" action="{{ url_for('delete_task', task_id=t['id']) }}">
-          <button class="btn danger" type="submit">Excluir</button>
+          <button class="btn danger" type="submit"
+            onclick="return confirm('Excluir esta tarefa?')">
+            Excluir
+          </button>
         </form>
       </div>
     </article>

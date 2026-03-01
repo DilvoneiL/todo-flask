@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 import sqlite3
 from pathlib import Path
+import os
 
 app = Flask(__name__)
-app.secret_key = "dev-secret-key"  # para flash messages
+app.secret_key = os.getenv("SECRET_KEY", "dev-secret-key")
 DB_PATH = Path("todo.db")
 
 
@@ -53,7 +54,15 @@ def index():
     with get_conn() as conn:
         tasks = conn.execute(sql, params).fetchall()
 
-    return render_template("index.html", tasks=tasks, q=q, status=status)
+        counts = conn.execute("""
+        SELECT
+          COUNT(*) as total,
+          SUM(CASE WHEN done = 0 THEN 1 ELSE 0 END) as pending,
+          SUM(CASE WHEN done = 1 THEN 1 ELSE 0 END) as done
+        FROM tasks
+    """).fetchone()
+
+    return render_template("index.html", tasks=tasks, q=q, status=status, counts=counts)
 
 
 @app.route("/new", methods=["GET", "POST"])
@@ -65,7 +74,7 @@ def new_task():
 
         if not title:
             flash("Título é obrigatório.", "error")
-            return render_template("form.html")
+            return render_template("form.html", title=title, description=description, category=category)
 
         with get_conn() as conn:
             conn.execute(

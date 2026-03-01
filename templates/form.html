@@ -5,13 +5,13 @@
   <h2>Nova tarefa</h2>
   <form method="post">
     <label>Título *</label>
-    <input name="title" required maxlength="80" placeholder="Ex: Estudar Flask">
+    <input id="title" name="title" required maxlength="80" placeholder="Ex: Estudar Flask">
 
     <label>Descrição</label>
-    <textarea name="description" rows="4" placeholder="Detalhes..."></textarea>
+    <textarea id="description" name="description" rows="4" placeholder="Detalhes..."></textarea>
 
     <label>Categoria</label>
-    <input name="category" maxlength="30" placeholder="Ex: faculdade, casa, trabalho">
+    <input id="category" name="category" maxlength="30" placeholder="Ex: faculdade, casa, trabalho">
 
     <div class="row">
       <button class="btn primary" type="submit">Salvar</button>
